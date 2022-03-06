@@ -1,0 +1,28 @@
+.question_answer_container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #CCCCCC;
+  margin-bottom: 30px;
+
+  .question {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 40px;
+    margin-bottom: 2px;
+  }
+
+  .answer {
+    font-size: 14px;
+    line-height: 150%;
+    width: 90%;
+  }
+
+  @media screen and (max-width: 600px) {
+    .question {
+    line-height: 25px;
+    margin-bottom: 10px;
+    }
+  }
+}

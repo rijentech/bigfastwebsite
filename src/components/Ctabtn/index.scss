@@ -1,0 +1,20 @@
+.cta_button {
+  width: 216.02px;
+  // height: 65.89px;
+  height: 58px;
+  background: #181818;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+
+  @media screen and (max-width: 647px) {
+    width: 160px;
+    height: 52px;
+    font-size: 18px;
+  }
+
+  .cta_link {
+    color: #fff;
+  }
+}

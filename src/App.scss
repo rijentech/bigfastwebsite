@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #fff;
+  font-family: "Roboto Mono", monospace;
+  color: #181818;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  .link {
+    color: #181818;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  @media screen and (min-width: 1441px) {
+    .nav_desktop_container,
+    .footer_desktop_container,
+    .desktop_container {
+      max-width: 1440px;
+      margin: auto;
+    }
+  }
+}

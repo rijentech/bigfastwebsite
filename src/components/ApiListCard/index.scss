@@ -1,0 +1,58 @@
+.api_listcard_container {
+  border: 1px solid #cccccc;
+  min-height: 200px;
+  width: 540px;
+  display: flex;
+  padding: 20px 25px 0 25px;
+  align-items: flex-start;
+
+  &:nth-child(1),
+  &:nth-child(2) {
+    margin-bottom: 80px;
+  }
+
+  .content {
+    margin-left: 20px;
+
+    .content_title {
+      font-weight: bold;
+      font-size: 32px;
+    }
+    .content_description {
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 158.68%;
+    }
+  }
+
+  @media screen and (max-width: 1230px) {
+    width: 45%;
+  }
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    width: 100%;
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      margin-bottom: 40px;
+    }
+
+    .content {
+      margin-left: 0px;
+
+      .content_title {
+        font-size: 28px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      .content_description {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
+}
