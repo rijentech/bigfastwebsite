@@ -2,10 +2,57 @@ import React, { useState, useEffect } from "react";
 import { DownOutlined } from "@ant-design/icons";
 import "./docsidebar.scss";
 import { Link, useLocation } from "react-router-dom";
+import { useApiData } from "../../context/ApiContextProvider";
+import { linkTrimer } from "../../Helpers/linkTrimmer";
 
 const Docsidebar = ({ sidebaropen }) => {
+  const [state, setState] = useState({
+    allTags: [],
+    navlink3: []
+  })
   const [staticSiteDropdown, setStaticSiteDropdown] = useState(false);
   const location = useLocation();
+
+  const {apiData} = useApiData()
+
+  useEffect(()=>{
+    let tagsCheck = []
+      if(apiData?.paths){
+        Object.entries(apiData.paths).forEach(([key, value])=>{
+        Object.entries(value?.post || value?.get || value?.put || value?.delete).forEach(([key, value])=> (key=== "tags" && value) &&
+          tagsCheck.push(...value)
+        )
+      })
+    }
+    setState((prev)=>{
+      return{
+        ...prev,
+        allTags: tagsCheck.filter((x, i, a) => a.indexOf(x) === i)
+      }
+    })
+  },[apiData])
+  
+
+  useEffect(()=>{
+    let id = 0
+    const links = state?.allTags?.map?.(item=>{
+      id = id + 1
+      return(
+      {id: id, pagelink: `/docs/${linkTrimer(item)}`, title: `${item}` }
+      )
+    })
+
+    setState((prev)=>{
+      return{
+        ...prev,
+        navlink3: links
+      }
+    })
+  },[state?.allTags])
+
+
+
+
   // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   // const toggleNav = () => {
@@ -53,17 +100,18 @@ const Docsidebar = ({ sidebaropen }) => {
     { id: 8, pagelink: "/docs/run-python-app", title: "Run a Python App" },
   ];
 
-  const navlink3 = [
-    { id: 1, pagelink: "/docs/auth", title: "Auth" },
-    { id: 2, pagelink: "/#2", title: "Organization" },
-    { id: 3, pagelink: "/#3", title: "Countries" },
-    { id: 4, pagelink: "/#4", title: "FAQ & Support" },
-    { id: 5, pagelink: "/#5", title: "Blog" },
-    { id: 6, pagelink: "/#6", title: "Comments" },
-    { id: 7, pagelink: "/#7", title: "Home" },
-    { id: 8, pagelink: "/#8", title: "Test" },
-  ];
+  // const navlink3 = [
+  //   { id: 1, pagelink: "/docs/auth", title: "Auth" },
+  //   { id: 2, pagelink: "/#2", title: "Organization" },
+  //   { id: 3, pagelink: "/#3", title: "Countries" },
+  //   { id: 4, pagelink: "/#4", title: "FAQ & Support" },
+  //   { id: 5, pagelink: "/#5", title: "Blog" },
+  //   { id: 6, pagelink: "/#6", title: "Comments" },
+  //   { id: 7, pagelink: "/#7", title: "Home" },
+  //   { id: 8, pagelink: "/#8", title: "Test" },
+  // ];
   
+  console.log(state.navlink3)
   return (
     <React.Fragment>
       <div className={`${sidebaropen ? 'sidebar_container active':'sidebar_container'}`}>
@@ -125,7 +173,7 @@ const Docsidebar = ({ sidebaropen }) => {
             </Link>
           </div>
           <ul>
-            {navlink3.map((detail) => (
+            {state?.navlink3?.map((detail) => (
               <li
                 key={detail.id}
                 className={`${

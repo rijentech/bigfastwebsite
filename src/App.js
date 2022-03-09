@@ -13,6 +13,7 @@ import WorkingWithGet from "./pages/docs/workingWithGet";
 import Auth from "./pages/docs/authdemo";
 import Allapis from "./pages/docs/allApis";
 import AuthDoc from "./pages/docs/auth";
+import {ApiContextProvider} from './context/ApiContextProvider'
 // import { TRUE } from "node-sass";
 
 const App = () => {
@@ -29,13 +30,13 @@ const App = () => {
 
 
   return (
+    <ApiContextProvider>
     <div className="body">
       <Navbar toggleSidebar={toggleSidebar} />
       <div className="desktop_container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/community" element={<Community />} />
-
           <Route path="/docs/faqs" element={<Faq sidebaropen={isOpen} />} />
           <Route path="/docs/apis" element={<Allapis sidebaropen={isOpen} />} />
           <Route
@@ -52,6 +53,8 @@ const App = () => {
       </div>
       <Footer bgcolor={location.pathname === "/" ? "" : "#F9F9F9"} />
     </div>
+    </ApiContextProvider>
+
   );
 };
 
