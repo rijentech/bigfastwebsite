@@ -8,11 +8,11 @@ import reviewimage from "../../assets/svgs/reviewimage.svg";
 import authIcon from "../../assets/svgs/auth.svg";
 import boxIcon from "../../assets/svgs/box.svg";
 import Card from "../../components/Quickstartguide/card";
-// import { Link } from "react-router-dom";
 import Ctabtn from "../../components/Ctabtn";
 import ApiListCard from "../../components/ApiListCard/apiListCard";
 
 const Home = () => {
+
   return (
     <React.Fragment>
       <section className="hero_container">
@@ -110,7 +110,7 @@ const Home = () => {
           </div>
         </div>
         <div className="review_img">
-          <img src={reviewimage} alt="Review image" />
+          <img src={reviewimage} alt="Review img" />
         </div>
       </section>
     </React.Fragment>
