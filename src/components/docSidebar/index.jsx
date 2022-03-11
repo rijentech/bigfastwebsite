@@ -1,56 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { DownOutlined } from "@ant-design/icons";
 import "./docsidebar.scss";
 import { Link, useLocation } from "react-router-dom";
 import { useApiData } from "../../context/ApiContextProvider";
-import { linkTrimer } from "../../Helpers/linkTrimmer";
 
 const Docsidebar = ({ sidebaropen }) => {
-  const [state, setState] = useState({
-    allTags: [],
-    navlink3: []
-  })
+
   const [staticSiteDropdown, setStaticSiteDropdown] = useState(false);
+
   const location = useLocation();
 
-  const {apiData} = useApiData()
-
-  useEffect(()=>{
-    let tagsCheck = []
-      if(apiData?.paths){
-        Object.entries(apiData.paths).forEach(([key, value])=>{
-        Object.entries(value?.post || value?.get || value?.put || value?.delete).forEach(([key, value])=> (key=== "tags" && value) &&
-          tagsCheck.push(...value)
-        )
-      })
-    }
-    setState((prev)=>{
-      return{
-        ...prev,
-        allTags: tagsCheck.filter((x, i, a) => a.indexOf(x) === i)
-      }
-    })
-  },[apiData])
-  
-
-  useEffect(()=>{
-    let id = 0
-    const links = state?.allTags?.map?.(item=>{
-      id = id + 1
-      return(
-      {id: id, pagelink: `/docs/${linkTrimer(item)}`, title: `${item}` }
-      )
-    })
-
-    setState((prev)=>{
-      return{
-        ...prev,
-        navlink3: links
-      }
-    })
-  },[state?.allTags])
-
-
+  const {navlink3} = useApiData()
 
 
   // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -111,7 +71,6 @@ const Docsidebar = ({ sidebaropen }) => {
   //   { id: 8, pagelink: "/#8", title: "Test" },
   // ];
   
-  console.log(state.navlink3)
   return (
     <React.Fragment>
       <div className={`${sidebaropen ? 'sidebar_container active':'sidebar_container'}`}>
@@ -173,7 +132,7 @@ const Docsidebar = ({ sidebaropen }) => {
             </Link>
           </div>
           <ul>
-            {state?.navlink3?.map((detail) => (
+            {navlink3?.map((detail) => (
               <li
                 key={detail.id}
                 className={`${
