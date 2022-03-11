@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useCallback , useContext} from 'react';
-import axios from "axios";
+// import axios from "axios";
 import { linkTrimer } from "../Helpers/linkTrimmer";
-
+import {testData} from '../utils/temp'
 
 const ApiContext = React.createContext()
 
@@ -53,16 +53,23 @@ useEffect(()=>{
 
 
 const getApi = useCallback(()=>{
-    axios.get(`https://bigfastapi.com/docs/swagger.json`)
-    .then(res=>setState((prev)=>{
-      return{
-        ...prev,
-        apiData: res?.data 
-      }
+//     axios.get(`https://bigfastapi.com/docs/swagger.json`)
+//     .then(res=>setState((prev)=>{
+//       return{
+//         ...prev,
+//         apiData: res?.data 
+//       }
+//     })
+//   ).catch(err=>{
+//     console.log("error", err)
+//   })
+
+    setState((prev)=>{
+        return{
+            ...prev,
+            apiData: testData
+        }
     })
-  ).catch(err=>{
-    console.log("error", err)
-  })
   },[])
   
   useEffect(()=>{

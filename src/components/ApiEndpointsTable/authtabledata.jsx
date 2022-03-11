@@ -10,6 +10,7 @@ const Authtabledata = ({
   col3body,
   col4,
   col5,
+  url
 }) => {
   return (
     <tr className="table_data">
@@ -18,7 +19,7 @@ const Authtabledata = ({
       </td>
       <td className="col2_container">
         <span className="col2">
-          <Link to="/docs/auth/demo" className="col2">{col2}</Link>
+          <Link to={url} className="col2">{col2}</Link>
         </span>
       </td>
       <td>
