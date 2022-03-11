@@ -73,6 +73,7 @@ const AuthDoc = ({sidebaropen}) => {
         parseDataTorender()
     },[parseDataTorender])
     
+    console.log("state", state.formattedContent)
     const endpoints = [
       {
         method: "POST",
@@ -248,10 +249,11 @@ const AuthDoc = ({sidebaropen}) => {
                     col1class={whichmethod?.(data?.method)}
                     col1={`${data?.method}`.toUpperCase()}
                     col2={data?.url}
-                    col3header={endpoints[0].purposeheader}
-                    col3body={endpoints[0].purpose}
+                    col3header={data?.info?.summary}
+                    col3body={data?.info?.summary}
                     col4={endpoints[0].sourcecode}
                     col5={endpoints[0].uisample}
+                    url={data?.info?.operationId}
                   />
                 ))}
               </tbody>

@@ -18,6 +18,7 @@ const AllRoutes = ({isOpen}) => {
          <Route path="/" element={<Home />} />
           <Route path="/community" element={<Community />} />
           <Route path="/docs/:id" element={<AuthDoc sidebaropen={isOpen} />} />
+          <Route path="/docs/:id/:id" element={<WorkingWithGet sidebaropen={isOpen} />} />
           <Route path="/docs/faqs" element={<Faq sidebaropen={isOpen} />} />
           <Route path="/docs/apis" element={<Allapis sidebaropen={isOpen} />} />
           <Route path="/docs/introduction" element={<Introduction sidebaropen={isOpen} />}/>
