@@ -1,7 +1,6 @@
-import React from "react";
+import React, {useState, useCallback, useEffect} from "react";
 import Docsidebar from "../../../components/docSidebar";
 import "./auth.scss";
-
 import authIcon from "../../../assets/svgs/authicon.svg";
 import authflow from "../../../assets/svgs/authflow.svg";
 import reactlogo from "../../../assets/svgs/reactlogo.svg";
@@ -13,9 +12,67 @@ import csslogo from "../../../assets/svgs/csslogo.svg";
 import vuelogo from "../../../assets/svgs/vuelogo.svg";
 import authapiflow from "../../../assets/svgs/authapiflow.svg";
 import Authtabledata from "../../../components/ApiEndpointsTable/authtabledata";
+import { useApiData } from "../../../context/ApiContextProvider";
+import { useParams } from "react-router-dom";
+import { linkTrimer } from "../../../Helpers/linkTrimmer";
 
 const AuthDoc = ({sidebaropen}) => {
 
+    const [state, setState] = useState({
+      loading: true,
+      group: [],
+      formattedContent: []
+    })
+
+    const {apiData} = useApiData()
+    const {id} = useParams()
+
+    const setGroup = useCallback(async ()=>{
+      try{
+      const curator = []
+       Object.entries?.(apiData?.paths).forEach((item)=>{
+        if((Object.values?.(item[1]).map?.(item=> item?.tags).flat()).map?.(item => linkTrimer(item)).includes(id)){
+         curator.push(item)
+        }
+      })
+      setState((prev)=>{
+        return{
+          ...prev,
+          group: curator
+        }
+      })
+    }catch(err){
+        console.log(err)
+      }
+
+    },[apiData?.paths, id])
+
+    useEffect(()=>{
+      setGroup()
+    }, [setGroup])
+
+
+    const parseDataTorender = useCallback(()=>{
+      const ins = []
+        state.group?.map?.(item=>{
+          const url= item[0]
+           Object.entries(item[1]).forEach(([key, value])=>{
+            ins.push({url: url, method: key, info: value})
+          })
+          return null
+        })
+        setState((prev)=>{
+          return{
+            ...prev,
+            formattedContent: ins
+          }
+        })
+    },[state.group])
+
+    useEffect(()=>{
+        parseDataTorender()
+    },[parseDataTorender])
+    
     const endpoints = [
       {
         method: "POST",
@@ -141,10 +198,10 @@ const AuthDoc = ({sidebaropen}) => {
 
     const whichmethod = (method) => {
         switch (method) {
-          case "POST":
+          case "post":
             return "post_bg";
 
-          case "PUT":
+          case "put":
             return "put_bg";
 
           default:
@@ -185,16 +242,16 @@ const AuthDoc = ({sidebaropen}) => {
                 </tr>
               </thead>
               <tbody>
-                {endpoints.map((data, i) => (
+                {state?.formattedContent?.map((data, i) => (
                   <Authtabledata
                     key={i}
-                    col1class={whichmethod(data.method)}
-                    col1={data.method}
-                    col2={data.url}
-                    col3header={data.purposeheader}
-                    col3body={data.purpose}
-                    col4={data.sourcecode}
-                    col5={data.uisample}
+                    col1class={whichmethod?.(data?.method)}
+                    col1={`${data?.method}`.toUpperCase()}
+                    col2={data?.url}
+                    col3header={endpoints[0].purposeheader}
+                    col3body={endpoints[0].purpose}
+                    col4={endpoints[0].sourcecode}
+                    col5={endpoints[0].uisample}
                   />
                 ))}
               </tbody>
