@@ -16,11 +16,13 @@ const [state, setState] = useState({
 
 useEffect(()=>{
     let tagsCheck = []
-      if(state?.apiData?.paths){
-        Object.entries(state?.apiData.paths).forEach(([key, value])=>{
-        Object.entries(value?.post || value?.get || value?.put || value?.delete).forEach(([key, value])=> (key=== "tags" && value) &&
-          tagsCheck.push(...value)
-        )
+      if(state.apiData.paths){
+        Object.entries?.(state?.apiData?.paths)?.forEach(([key, value])=>{
+        if(value?.post || value?.get || value?.put || value?.delete){
+          Object.entries?.(value?.post || value?.get || value?.put || value?.delete).forEach(([key, value])=> (key=== "tags" && value) &&
+            tagsCheck.push(...value)
+            )
+        }
       })
     }
     setState((prev)=>{
@@ -32,6 +34,7 @@ useEffect(()=>{
   },[state?.apiData])
 
 
+  console.log("log", state?.apiData)
 
 
   useEffect(()=>{
@@ -53,17 +56,22 @@ useEffect(()=>{
 
 
 const getApi = useCallback(()=>{
-//     axios.get(`https://bigfastapi.com/docs/swagger.json`)
-//     .then(res=>setState((prev)=>{
-//       return{
-//         ...prev,
-//         apiData: res?.data 
-//       }
-//     })
-//   ).catch(err=>{
-//     console.log("error", err)
-//   })
-
+    // axios.get(
+      // `https://bigfastapi.com/docs/swagger.json`
+        // `http://127.0.0.1:7001/openapi.json`
+      // )
+  //   .then(res=>{
+  //     setState((prev)=>{
+  //     return{
+  //       ...prev,
+  //       apiData: res?.data 
+  //     }
+  //   })
+  // }
+  // ).catch(err=>{
+  //   console.log("error", err)
+  // })
+    //set for test data
     setState((prev)=>{
         return{
             ...prev,

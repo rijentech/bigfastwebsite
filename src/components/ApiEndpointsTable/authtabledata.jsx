@@ -35,7 +35,7 @@ const Authtabledata = ({
           ))}
         </div>
       </td>
-      <td>
+      <td>    
         <div className="dual_items">
           <div className="logo_container2">
             {col5?.map((logo, i) => (
