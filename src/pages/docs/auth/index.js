@@ -30,11 +30,16 @@ const AuthDoc = ({sidebaropen}) => {
     const setGroup = useCallback(async ()=>{
       try{
       const curator = []
-       Object.entries?.(apiData?.paths).forEach((item)=>{
-        if((Object.values?.(item[1]).map?.(item=> item?.tags).flat()).map?.(item => linkTrimer(item)).includes(id)){
-         curator.push(item)
-        }
-      })
+      if(apiData?.paths){
+        Object.entries?.(apiData?.paths).forEach((item)=>{
+          if(Object.values(item)){
+            if((Object.values?.(item[1]).map?.(item=> item?.tags).flat()).map?.(item => linkTrimer?.(item)).includes(id)){
+            curator.push(item)
+           }
+
+          }
+       })
+      }
       setState((prev)=>{
         return{
           ...prev,
@@ -63,7 +68,7 @@ const AuthDoc = ({sidebaropen}) => {
         })
         setState((prev)=>{
           return{
-            ...prev,
+            ...prev,  
             formattedContent: ins
           }
         })
@@ -73,7 +78,7 @@ const AuthDoc = ({sidebaropen}) => {
         parseDataTorender()
     },[parseDataTorender])
     
-    console.log("state", state.formattedContent)
+
     const endpoints = [
       {
         method: "POST",
