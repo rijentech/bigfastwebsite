@@ -21,6 +21,8 @@ const App = () => {
     setIsOpen(false);
   }, [location]);
 
+  
+
   return (
     <ApiContextProvider>
     <div className="body">

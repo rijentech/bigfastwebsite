@@ -50,16 +50,16 @@ useEffect(()=>{
       return{
         ...prev,
         navlink3: links
-      }
+      } 
     })
   },[state?.allTags])
 
 
 const getApi = useCallback(()=>{
-    // axios.get(
-      // `https://bigfastapi.com/docs/swagger.json`
-        // `http://127.0.0.1:7001/openapi.json`
-      // )
+  //   axios.get(
+  //     // `https://bigfastapi.com/docs/swagger.json`
+  //       `http://127.0.0.1:7001/openapi.json`
+  //     )
   //   .then(res=>{
   //     setState((prev)=>{
   //     return{
@@ -71,7 +71,7 @@ const getApi = useCallback(()=>{
   // ).catch(err=>{
   //   console.log("error", err)
   // })
-    //set for test data
+    // set for test data
     setState((prev)=>{
         return{
             ...prev,

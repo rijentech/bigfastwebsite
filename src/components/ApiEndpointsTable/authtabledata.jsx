@@ -25,7 +25,7 @@ const Authtabledata = ({
       <td>
         <div className="col3_container">
           <span className="">{col3header}</span>
-          <span className="">{col3body}</span>
+          {/* <span className="">{col3body}</span> */}
         </div>
       </td>
       <td>

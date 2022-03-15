@@ -945,6 +945,7 @@ export const testData = {
     "FAQ and Support ❓"
     ],
     "summary": "Get Faqs",
+    "description": "model for support and faqs\n\nArgs:\n    id (str): \n\nReturns:\n    Faq created succesfully",
     "operationId": "get_faqs_support_faqs_get",
     "responses": {
     "200": {
@@ -1688,7 +1689,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Create Blog",
-    "description": "Create a new blog\n\nReturns:\n    schema.Blog: Details of the newly created blog",
+    "description": "This endpoint allows you to create a create a new blog item\n\nOn request it Returns:\n    Details of the newly created blog",
     "operationId": "create_blog_blog_post",
     "requestBody": {
     "content": {
@@ -1736,7 +1737,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Get Blog",
-    "description": "Get the details of a blog\n\nArgs:\n    blog_id (str): the id of the blog\n\nReturns:\n    schema.Blog: Details of the requested blog",
+    "description": "This endpoint allows you to get the details of a particular blog\n\nOn get request it takes the following parameter:\nblog_id (string): This is the id of the blog\n\nOn request the endpoit Returns:\n    Details of the requested blog",
     "operationId": "get_blog_blog__blog_id__get",
     "parameters": [
     {
@@ -1776,7 +1777,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Update Blog",
-    "description": "Update the details of a blog\n\nArgs:\n    blog_id (str): the id of the blog to be updated\n\nReturns:\n    schema.Blog: Refreshed data of the updated blog",
+    "description": "This endpoint allows you to update the details of a blog\n \n On put request it takes the following parameter:\n     blog_id (string): the id of the blog to be updated\n\nOn request the endpoit Returns:\n     A refreshed data of the updated blog\n ",
     "operationId": "update_blog_blog__blog_id__put",
     "parameters": [
     {
@@ -1833,7 +1834,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Delete Blog",
-    "description": "Delete a blog from the database\n\nArgs:\n    blog_id (str): the id of the blog to be deleted\n\nReturns:\n    object (dict): successfully deleted",
+    "description": "This endpoint allows you delete a blog from the database\n\nOn delete request it takes the following parameter:\n    blog_id (string): This is the id of the blog to be deleted\n\nOn request the endpoit Returns:\n    An Object with message, \"successfully deleted\"",
     "operationId": "delete_blog_blog__blog_id__delete",
     "parameters": [
     {
@@ -1880,7 +1881,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Get All Blogs",
-    "description": "Get all the blogs in the database\n\nReturns:\n    List of schema.Blog: A list of all the blogs",
+    "description": "This endpoint allows you to get all the blogs in the database\n\nOn request the endpoit Returns:\n    A list of all the blogs",
     "operationId": "get_all_blogs_blogs_get",
     "responses": {
     "200": {
@@ -1907,7 +1908,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Get User Blogs",
-    "description": "Get all the blogs created by a user\n\nArgs:\n    user_id (str): the id of the user\n\nReturns:\n    List of schema.Blog: A list of all the blogs created by the user",
+    "description": "This endpoint allows you to get all the blogs created by a user\n \nOn get request it takes the following parameter:\n user_id (string): This is the id of the user\n\n On request the endpoit Returns:\n      A list of all the blogs created by the user\n ",
     "operationId": "get_user_blogs_blogs__user_id__get",
     "parameters": [
     {
