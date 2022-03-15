@@ -54,14 +54,14 @@ tbody {
       }
     }
     .col3_container {
+      position: relative;
       display: flex;
-      flex-direction: column;
-      padding-top: 20px;
       padding-bottom: 20px;
 
       span {
         &:nth-child(1) {
           font-weight: bold;
+          white-space: nowrap;
         }
         &:nth-child(2) {
             width: 20ch;

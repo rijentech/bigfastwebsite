@@ -21,11 +21,29 @@ const AuthDoc = ({sidebaropen}) => {
     const [state, setState] = useState({
       loading: true,
       group: [],
+      groupName: [],
       formattedContent: []
     })
-
-    const {apiData} = useApiData()
+    
+    const {apiData, allTags} = useApiData()
     const {id} = useParams()
+    
+    console.log("g", state?.group)
+
+    useEffect(()=>{
+      window.scrollTo(0, 0)
+    },[id])
+
+
+    useEffect(()=>{
+      const name = allTags.find(i=> linkTrimer(i) === id)
+      setState((prev)=>{
+        return{
+          ...prev,
+          groupName: name
+        }
+      })
+    },[allTags, id])
 
     const setGroup = useCallback(async ()=>{
       try{
@@ -223,7 +241,7 @@ const AuthDoc = ({sidebaropen}) => {
           <div className="heading_img">
             <img src={authIcon} alt="" />
           </div>
-          <div className="heading_title">Auth</div>
+          <div className="heading_title">{state?.groupName}</div>
         </div>
         <div className="main_description">
           The Authentication API enables you to manage all aspects of user
@@ -255,7 +273,7 @@ const AuthDoc = ({sidebaropen}) => {
                     col1={`${data?.method}`.toUpperCase()}
                     col2={data?.url}
                     col3header={data?.info?.summary}
-                    col3body={data?.info?.summary}
+                    col3body={" "}
                     col4={endpoints[0].sourcecode}
                     col5={endpoints[0].uisample}
                     url={data?.info?.operationId}

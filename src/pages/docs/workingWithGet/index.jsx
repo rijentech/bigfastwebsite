@@ -22,6 +22,10 @@ const WorkingWithGet = ({sidebaropen}) => {
   const urlArray = window.location.pathname.split("/")
   const mainId = urlArray[urlArray.length - 2]
 
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  },[id])
+
 
   const setGroup = useCallback(async ()=>{
     try{
@@ -87,9 +91,18 @@ const WorkingWithGet = ({sidebaropen}) => {
         <div className="mb-30">
             {state?.content?.description?.split("\n").map(item=>item.trim(" "))[0] ?? "No description yet"}
             <br/>
+            <br/>
             {state?.content?.description?.split("\n").map(item=>item.trim(" "))[2] ?? ""}
             <br/>
-            {state?.content?.description?.split("\n").map(item=>item.trim(" "))[3] ?? ""}
+            <ul className='list'>
+              <li>{state?.content?.description?.split("\n").map(item=>item.trim(" "))[3] ?? ""}</li>
+            </ul>
+            {state?.content?.description?.split("\n").map(item=>item.trim(" "))[5] ?? ""}
+            <br/>
+            {state?.content?.description?.split("\n").map(item=>item.trim(" "))[6] ?? ""}
+            <br/>
+            {state?.content?.description?.split("\n").map(item=>item.trim(" "))[7] ?? ""}
+
           {/* You may not know what an API does. You may not know what it stands
           for. But everyday APIs are working behind the scenes to provide you
           richer digital experiences. The movie ticket you bought online, the
@@ -101,10 +114,10 @@ const WorkingWithGet = ({sidebaropen}) => {
           <img src={vplayer} alt="" />
         </div>
         <div className="mb-30">
-          The Authentication API enables you to manage all aspects of user
+          {/* The Authentication API enables you to manage all aspects of user
           identity when you use Auth0. It offers endpoints so your users can log
           in, sign up, log out, access APIs, and more. Learn more on how to
-          perform Authentication with the
+          perform Authentication with the */}
         </div>
       </div>
     </div>
