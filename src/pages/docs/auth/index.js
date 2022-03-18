@@ -22,6 +22,7 @@ const AuthDoc = ({sidebaropen}) => {
       loading: true,
       group: [],
       groupName: [],
+      groupDescription: "",
       formattedContent: []
     })
     
@@ -58,17 +59,21 @@ const AuthDoc = ({sidebaropen}) => {
           }
        })
       }
+      //tagsMetadata
+      const metadata = apiData?.tags?.find?.(item => item.name === id)
       setState((prev)=>{
         return{
           ...prev,
-          group: curator
+          group: curator,
+          groupDescription: metadata?.description
+          
         }
       })
     }catch(err){
         console.log(err)
       }
 
-    },[apiData?.paths, id])
+    },[apiData?.paths, apiData?.tags, id])
 
     useEffect(()=>{
       setGroup()
@@ -244,10 +249,7 @@ const AuthDoc = ({sidebaropen}) => {
           <div className="heading_title">{state?.groupName}</div>
         </div>
         <div className="main_description">
-          The Authentication API enables you to manage all aspects of user
-          identity when you use Auth0. It offers endpoints so your users can log
-          in, sign up, log out, access APIs, and more. Learn more on how to
-          perform Authentication with the
+          {state?.groupDescription}
         </div>
         <div className="auth_flow_img">
           <img src={authflow} alt="" />
