@@ -11,7 +11,7 @@ export const ApiContextProvider = ({children}) =>{
 const [state, setState] = useState({
     apiData: {},
     allTags: [],
-    navlink3: []
+    navlink3: [],
 })
 
 useEffect(()=>{

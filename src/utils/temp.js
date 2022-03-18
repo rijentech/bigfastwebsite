@@ -1689,7 +1689,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Create Blog",
-    "description": "This endpoint allows you to create a create a new blog item\n\nOn request it Returns:\n    Details of the newly created blog",
+    "description": "intro-This endpoint allows you to create a create a new blog post on the fly and takes in about two paramenters. To create a blog, you need to make a post request to the /blog endpoint\n\nparamDesc-This request takes in the following parameters:\n    param-\"title\" (string) : This is the title of the blog post to be created.\n    param-\"content\" (string): This is the content of the blog post to be created.\n\nreturnDesc-On sucessful request, it returns:\n    returnBody-The blog object",
     "operationId": "create_blog_blog_post",
     "requestBody": {
     "content": {
@@ -1737,7 +1737,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Get Blog",
-    "description": "This endpoint allows you to get the details of a particular blog\n\nOn get request it takes the following parameter:\nblog_id (string): This is the id of the blog\n\nOn request the endpoit Returns:\n    Details of the requested blog",
+    "description": "intro-This endpoint allows you to retreive a blog post based on it's id which is included in the request url. To get a blog post, you need to make a get request to the /blog/blog_id endpoint in which \"id\" is the unique identifier of the blog item.\n\nparamDesc-On get request the url takes a query parameter \"blog_id\" i.e /blog/blog_id:\n    param-\"blog_id\" (string): This is the id of the blog item\n\nreturnDesc-On sucessful request, it returns:\n    returnBody- a success message",
     "operationId": "get_blog_blog__blog_id__get",
     "parameters": [
     {
@@ -1777,7 +1777,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Update Blog",
-    "description": "This endpoint allows you to update the details of a blog\n \n On put request it takes the following parameter:\n     blog_id (string): the id of the blog to be updated\n\nOn request the endpoit Returns:\n     A refreshed data of the updated blog\n ",
+    "description": "intro-This endpoint allows you to update a particular blog post. To update a blog posts, you need to make a put request to the /blog/blog_id endpoint where blog_id is the unique identifier for the blog.\n\nparamDesc-This request can take any or both of the following parameters:\n    param-\"title\" (string) : This is the title of the blog post to be created.\n    param-\"content\" (string): This is the content of the blog post to be created.\n\nreturnDesc-On sucessful request, it returns:\n   returnBody- An refreshed object of the updated blog",
     "operationId": "update_blog_blog__blog_id__put",
     "parameters": [
     {
@@ -1834,7 +1834,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Delete Blog",
-    "description": "This endpoint allows you delete a blog from the database\n\nOn delete request it takes the following parameter:\n    blog_id (string): This is the id of the blog to be deleted\n\nOn request the endpoit Returns:\n    An Object with message, \"successfully deleted\"",
+    "description": "intro-This endpoint allows you to delete a particular blog post. To delete a blog posts, you need to make a delete request to the /blog/blog_id endpoint where blog_id is the unique identifier for the blog.\n\nparamDesc-On delete request the url takes a query parameter \"blog_id\" i.e /blog/blog_id:\n    param-\"blog_id\" (string): This is the unique id of the blog item\n\n\nreturnDesc-On sucessful request, it returns:\n   returnBody- An Object with message, \"successfully deleted\"",
     "operationId": "delete_blog_blog__blog_id__delete",
     "parameters": [
     {
@@ -1881,7 +1881,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Get All Blogs",
-    "description": "This endpoint allows you to get all the blogs in the database\n\nOn request the endpoit Returns:\n    A list of all the blogs",
+    "description": "intro-This endpoint allows you to retreive all blog posts in the database. To retreive all blog posts, you need to make a get request to the /blog endpoint.\n\nreturnDesc-On sucessful request, it returns:\n   returnBody- An array of blog objects.",
     "operationId": "get_all_blogs_blogs_get",
     "responses": {
     "200": {
@@ -1908,7 +1908,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Get User Blogs",
-    "description": "This endpoint allows you to get all the blogs created by a user\n \nOn get request it takes the following parameter:\n user_id (string): This is the id of the user\n\n On request the endpoit Returns:\n      A list of all the blogs created by the user\n ",
+    "description": "intro-This endpoint allows you to retreive all blog posts created by a particular user. To retreive all blog posts by a user, you need to make a get request to the /blog/userId endpoint where userId is the unique identifier for the user.\n\nparamDesc-On get request the url takes a query parameter \"user_id\" i.e /blog/user_id:\n     param-\"user_id\" (string): This is the id of the user\n\n returnDesc-On sucessful request, it returns:\n      returnBody- An array of blog post objects created by the queried user.\n ",
     "operationId": "get_user_blogs_blogs__user_id__get",
     "parameters": [
     {
@@ -9595,5 +9595,15 @@ export const testData = {
     }
     }
     }
+    },
+    "tags": [
+    {
+    "name": "blog",
+    "description": " BigFast's blog api endpoints include various standard blog api patterns from blog creation to various api querying operations. With this group you can easily get your blog client up and running in no time 📝"
+    },
+    {
+    "name": "auth",
+    "description": "This group allows you to interface with the auth endpoints"
     }
+    ]
     }

@@ -14,7 +14,12 @@ const WorkingWithGet = ({sidebaropen}) => {
     content: {},
     method: "",
     group: [],
-    loading: true
+    loading: true,
+    intro: "",
+    paramDesc: "",
+    paramsList: [],
+    returnDesc: "",
+    returnBody: ""
   })
 
   const {apiData} = useApiData()
@@ -78,7 +83,37 @@ const WorkingWithGet = ({sidebaropen}) => {
   setContent()
  },[setContent])
 
- console.log("content", state.content)
+ useEffect(()=>{
+  const contentArr = state.content?.description?.split("\n").map(item=>item.trim(" "))
+  const paramslist = []
+  contentArr?.map?.(item=>{
+    const itemArr = item?.split("-")
+    if(itemArr[0] === "param"){
+      paramslist.push(itemArr[1])
+      console.log("LOOKING",itemArr[1])
+    }
+    setState((prev)=>{
+      return{
+        ...prev,
+        paramsList: paramslist
+      }
+    })
+    setState((prev)=>{
+      return{
+        ...prev,
+        intro: itemArr[0] === "intro" ? itemArr[1] : prev.intro,
+        paramDesc: itemArr[0] === "paramDesc" ? itemArr[1] : prev.paramDesc,
+        returnBody: itemArr[0] === "returnBody" ? itemArr[1] : prev.returnBody,
+        returnDesc: itemArr[0] === "returnDesc" ? itemArr[1] : prev.returnDesc,
+      }
+    })
+    return ""
+  })
+
+ },[state.content?.description])
+
+ console.log("content", state.content?.description?.split("\n").map(item=>item.trim(" ")))
+
 
   return (
     <div className="workingwithget_container">
@@ -89,35 +124,40 @@ const WorkingWithGet = ({sidebaropen}) => {
           <div className="title">{state?.content?.summary}</div>
         </div>
         <div className="mb-30">
-            {state?.content?.description?.split("\n").map(item=>item.trim(" "))[0] ?? "No description yet"}
+              {state?.intro}
             <br/>
             <br/>
-            {state?.content?.description?.split("\n").map(item=>item.trim(" "))[2] ?? ""}
+
+            <h2>Parameters</h2>
+            {state.paramDesc ? 
+            <>
+            {state?.paramDesc}
             <br/>
             <ul className='list'>
-              <li>{state?.content?.description?.split("\n").map(item=>item.trim(" "))[3] ?? ""}</li>
+              {state?.paramsList?.map?.(item=>(
+                <li key={Math.random()}>{item}</li>
+              ))}
             </ul>
-            {state?.content?.description?.split("\n").map(item=>item.trim(" "))[5] ?? ""}
+            </>
+            :
+            <span>No Parameter for this request</span>
+            }
+            
             <br/>
-            {state?.content?.description?.split("\n").map(item=>item.trim(" "))[6] ?? ""}
             <br/>
-            {state?.content?.description?.split("\n").map(item=>item.trim(" "))[7] ?? ""}
+            
+            <h2>Returns</h2>
+            {state?.returnDesc}
+            <br />
+            {state?.returnBody}
 
-          {/* You may not know what an API does. You may not know what it stands
-          for. But everyday APIs are working behind the scenes to provide you
-          richer digital experiences. The movie ticket you bought online, the
-          blogger’s recipe you shared on Facebook, and the cheap flight you
-          booked on Expedia are all thanks to APIs. */}     
         </div>
         <div className="subtitle">How to get started</div>
         <div className="vplayer_container mb-30">
           <img src={vplayer} alt="" />
         </div>
         <div className="mb-30">
-          {/* The Authentication API enables you to manage all aspects of user
-          identity when you use Auth0. It offers endpoints so your users can log
-          in, sign up, log out, access APIs, and more. Learn more on how to
-          perform Authentication with the */}
+          {/* content maybe */}
         </div>
       </div>
     </div>
