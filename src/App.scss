@@ -16,6 +16,10 @@ body {
     list-style-type: none;
   }
 
+  h2{
+    margin: 0 !important;
+  }
+
   @media screen and (min-width: 1441px) {
     .nav_desktop_container,
     .footer_desktop_container,

@@ -28,7 +28,7 @@ const Authtabledata = ({
           {/* <span className="">{col3body}</span> */}
         </div>
       </td>
-      <td>
+      {/* <td>
         <div className="logo_container">
           {col4?.map((logo, i) => (
             <img key={i} src={logo} alt="" />
@@ -46,7 +46,7 @@ const Authtabledata = ({
             <DownOutlined />
           </div>
         </div>
-      </td>
+      </td> */}
     </tr>
   );
 };

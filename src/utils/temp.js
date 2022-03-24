@@ -12,6 +12,7 @@ export const testData = {
     "Auth"
     ],
     "summary": "Create User",
+    "description": "intro-This endpoint allows creation of a new user. To create a new user, you need to send a post request to the /auth/signup endpoint with a body of request containing details of the new user.\nparamDesc-\n    reqBody-email: This is the email of the new user.\n    reqBody-password: This is the unique password of the new user .\n    reqBody-first_name: This is the first name of the new user.\n    reqBody-last_name: This is the last name of the new user.\n    reqBody-phone_number: This is the phone number of the new user.\n    reqBody-country_code: This is the country code of the new user.\n    reqBody-image: This is an image file of the new user, can be of any format.\n    reqBody-device_id: This is the id of the device used at signup.\n    reqBody-country: This is the country name of the new user.\n    reqBody-state: This is the state name of the new user.\n    reqBody-google_id: This is a unique id of the new user's google account.\n    reqBody-google_image: This is the image of the user's google account.\n\nreturnDesc-On sucessful request, it returns\n    returnBody- \"success\".",
     "operationId": "create_user_auth_signup_post",
     "requestBody": {
     "content": {
@@ -52,6 +53,7 @@ export const testData = {
     "Auth"
     ],
     "summary": "Login",
+    "description": "intro-This endpoint allows you to login an existing user, to login a user you need to make a post request to the /auth/login endpoint with a required body of requst as specified below\n\nparamDesc-\n    reqBody-email: This is the email of the existing user.\n    reqBody-phone_number: This is the phone number of the existing user.\n    reqBody-country_code: This is the country code of the existing user.\n    reqBody-password: This is the password of the existing user.\n\nreturnDesc-On sucessful request, it returns\n    returnBody- \"success\".",
     "operationId": "login_auth_login_post",
     "requestBody": {
     "content": {
@@ -835,7 +837,7 @@ export const testData = {
     "Countries"
     ],
     "summary": "Get Countries",
-    "description": "Get Countries and their respective states\n\nArgs:\n    country_name (str): serves as a filter for a particular country\n\nReturns:\n    List[Country]: list of countries and their respective states",
+    "description": "intro-This endpoint returns a list of all countries in the world and their respective states. To get this data you need to make a get request to the /countries endpoint.\n\nreturnDesc-On sucessful request, it returns\n    returnBody- \"an array country objects\".",
     "operationId": "get_countries_countries_get",
     "responses": {
     "200": {
@@ -858,7 +860,7 @@ export const testData = {
     "Countries"
     ],
     "summary": "Get Country States",
-    "description": "Get states within a particular country\n\nArgs:\n    country_name (str): serves as a filter for a particular country\n\nReturns:\n    List[State]: list of states and their respective cities",
+    "description": "intro-This endpoint returns a list of all states in a queried country. To get this data you need to make a get request to the /countries/{country_code}/states endpoint.\n\nparamDesc-On get request, the url takes a query parameter \"country_code\" i.e /countries/{country_code}/states:\n    param-country_code: This is the country code of the country of interest\n\nreturnDesc-On sucessful request, it returns\n    returnBody- \"an array of states\".",
     "operationId": "get_country_states_countries__country_code__states_get",
     "parameters": [
     {
@@ -902,7 +904,7 @@ export const testData = {
     "Countries"
     ],
     "summary": "Get Countries Dial Codes",
-    "description": "Get Countries and their respective codes\n    including dial codes and sample phone formats\n\nArgs:\n    country (str): serves as a filter for a particular country\n\nReturns:\n    List[Country]: list of countries and their respective dial codes",
+    "description": "intro-This endpoint returns a list of all countries and thier respective codes including dial codes and sample phone formats. To get, you need to make a get request to the /countries/codes enpoint\n\nparamDesc-To query for a particular country, you need to make a get request to /countries/codes?country_code={country_code}\n    param-country_code: This is the country code of the country of interest\n\nreturnDesc-On sucessful request, it returns\n    returnBody- an array of countries and their codes.",
     "operationId": "get_countries_dial_codes_countries_codes_get",
     "parameters": [
     {
@@ -1689,7 +1691,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Create Blog",
-    "description": "intro-This endpoint allows you to create a create a new blog post on the fly and takes in about two paramenters. To create a blog, you need to make a post request to the /blog endpoint\n\nparamDesc-This request takes in the following parameters:\n    param-\"title\" (string) : This is the title of the blog post to be created.\n    param-\"content\" (string): This is the content of the blog post to be created.\n\nreturnDesc-On sucessful request, it returns:\n    returnBody-The blog object",
+    "description": "intro-This endpoint allows you to create a create a new blog post on the fly and takes in about two paramenters. To create a blog, you need to make a post request to the /blog endpoint\n\nparamDesc-\n    reqBody-title: This is the title of the blog post to be created.\n    reqBody-content: This is the content of the blog post to be created.\n\nreturnDesc-On sucessful request, it returns\n    returnBody- the blog object.",
     "operationId": "create_blog_blog_post",
     "requestBody": {
     "content": {
@@ -1737,7 +1739,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Get Blog",
-    "description": "intro-This endpoint allows you to retreive a blog post based on it's id which is included in the request url. To get a blog post, you need to make a get request to the /blog/blog_id endpoint in which \"id\" is the unique identifier of the blog item.\n\nparamDesc-On get request the url takes a query parameter \"blog_id\" i.e /blog/blog_id:\n    param-\"blog_id\" (string): This is the id of the blog item\n\nreturnDesc-On sucessful request, it returns:\n    returnBody- a success message",
+    "description": "intro-This endpoint allows you to retreive a blog post based on it's id which is included in the request url. To get a blog post, you need to make a get request to the /blog/blog_id endpoint in which \"id\" is the unique identifier of the blog item.\n\nparamDesc-On get request the url takes a query parameter \"blog_id\" i.e /blog/blog_id:\n    param-blog_id: This is the id of the blog item\n\nreturnDesc-On sucessful request, it returns\n    returnBody- \"success\"",
     "operationId": "get_blog_blog__blog_id__get",
     "parameters": [
     {
@@ -1777,7 +1779,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Update Blog",
-    "description": "intro-This endpoint allows you to update a particular blog post. To update a blog posts, you need to make a put request to the /blog/blog_id endpoint where blog_id is the unique identifier for the blog.\n\nparamDesc-This request can take any or both of the following parameters:\n    param-\"title\" (string) : This is the title of the blog post to be created.\n    param-\"content\" (string): This is the content of the blog post to be created.\n\nreturnDesc-On sucessful request, it returns:\n   returnBody- An refreshed object of the updated blog",
+    "description": "intro-This endpoint allows you to update a particular blog post. To update a blog posts, you need to make a put request to the /blog/blog_id endpoint where blog_id is the unique identifier for the blog.\n\nparamDesc-This request can take any or both of the following parameters:\n    reqBody-title: This is the title of the blog post to be created.\n    reqBody-content: This is the content of the blog post to be created.\n\nreturnDesc-On sucessful request, it returns\n   returnBody- a refreshed object of the updated blog",
     "operationId": "update_blog_blog__blog_id__put",
     "parameters": [
     {
@@ -1834,7 +1836,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Delete Blog",
-    "description": "intro-This endpoint allows you to delete a particular blog post. To delete a blog posts, you need to make a delete request to the /blog/blog_id endpoint where blog_id is the unique identifier for the blog.\n\nparamDesc-On delete request the url takes a query parameter \"blog_id\" i.e /blog/blog_id:\n    param-\"blog_id\" (string): This is the unique id of the blog item\n\n\nreturnDesc-On sucessful request, it returns:\n   returnBody- An Object with message, \"successfully deleted\"",
+    "description": "intro-This endpoint allows you to delete a particular blog post. To delete a blog posts, you need to make a delete request to the /blog/blog_id endpoint where blog_id is the unique identifier for the blog.\n\nparamDesc-On delete request the url takes a query parameter \"blog_id\" i.e /blog/blog_id:\n    param-blog_id: This is the unique id of the blog item\n\n\nreturnDesc-On sucessful request, it returns an Object with message\n   returnBody- \"successfully deleted\"",
     "operationId": "delete_blog_blog__blog_id__delete",
     "parameters": [
     {
@@ -1881,7 +1883,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Get All Blogs",
-    "description": "intro-This endpoint allows you to retreive all blog posts in the database. To retreive all blog posts, you need to make a get request to the /blog endpoint.\n\nreturnDesc-On sucessful request, it returns:\n   returnBody- An array of blog objects.",
+    "description": "intro-This endpoint allows you to retreive all blog posts in the database. To retreive all blog posts, you need to make a get request to the /blog endpoint.\n\nreturnDesc-On sucessful request, it returns:\n   returnBody- an array of blog objects.",
     "operationId": "get_all_blogs_blogs_get",
     "responses": {
     "200": {
@@ -1908,7 +1910,7 @@ export const testData = {
     "Blog"
     ],
     "summary": "Get User Blogs",
-    "description": "intro-This endpoint allows you to retreive all blog posts created by a particular user. To retreive all blog posts by a user, you need to make a get request to the /blog/userId endpoint where userId is the unique identifier for the user.\n\nparamDesc-On get request the url takes a query parameter \"user_id\" i.e /blog/user_id:\n     param-\"user_id\" (string): This is the id of the user\n\n returnDesc-On sucessful request, it returns:\n      returnBody- An array of blog post objects created by the queried user.\n ",
+    "description": "intro-This endpoint allows you to retreive all blog posts created by a particular user. To retreive all blog posts by a user, you need to make a get request to the /blog/userId endpoint where userId is the unique identifier for the user.\n\nparamDesc-On get request the url takes a query parameter \"user_id\" i.e /blog/user_id:\n     param-user_id: This is the id of the user\n\n returnDesc-On sucessful request, it returns\n      returnBody- an array of blog post objects created by the queried user.\n ",
     "operationId": "get_user_blogs_blogs__user_id__get",
     "parameters": [
     {
@@ -1955,6 +1957,7 @@ export const testData = {
     "Pages"
     ],
     "summary": "Get All Pages",
+    "description": "intro-This endpoint returns a list of all created pages, and their details. To get this data, you need to make a get request to the /pages endpoint\n\nreturnDesc-On sucessful request, it returns\n    returnBody- an array of page objects.",
     "operationId": "get_all_pages_pages_get",
     "responses": {
     "200": {
@@ -1980,6 +1983,7 @@ export const testData = {
     "Pages"
     ],
     "summary": "Create Page",
+    "description": "intro-This endpoint allows you to create a new page. To create a new page you need to make a post request to the /page endpoint\n\n    reqBody-title: This is the title of the new page\n    reqBody-content: This is the content body of the new page \n\nreturnDesc-On sucessful request, it returns\n    returnBody- a page object.",
     "operationId": "create_page_page_post",
     "requestBody": {
     "content": {
@@ -2021,6 +2025,7 @@ export const testData = {
     "Pages"
     ],
     "summary": "Get Page",
+    "description": "intro-This endpoint allows you to retrieve an existing page. To retreive an existing page you need to make a get request to the /page/{page_id} endpoint where page_id is the unique identifier of the page\n\nparamDesc- On get request the url takes a query parameter \"page_id\" i.e /page/page_id:\n    param-page_id: This is the id of the existing page to be updated\n    reqBody-title: This is the title of the page\n    reqBody-content: This is the content body of the page \n\nreturnDesc-On sucessful request, it returns \n    returnBody- the page object.",
     "operationId": "get_page_page__page_id__get",
     "parameters": [
     {
@@ -2061,6 +2066,7 @@ export const testData = {
     "Pages"
     ],
     "summary": "Update Page",
+    "description": "intro-This endpoint allows you to update an existing page. To update an existing page you need to make a put request to the /page/{page_id} endpoint where page_id is the unique identifier of the page\n\nparamDesc- On put request the url takes a query parameter \"page_id\" i.e /page/page_id:\n    param-page_id: This is the id of the existing page to be updated\n\nreturnDesc-On sucessful request, it returns \n    returnBody- page object.",
     "operationId": "update_page_page__page_id__put",
     "parameters": [
     {
@@ -5521,7 +5527,7 @@ export const testData = {
     "Notification"
     ],
     "summary": "Get A Notification",
-    "description": "Get details of a notification\n\nArgs:\n    notification_id (str): the id of the notification.\nReturns:\n    schema.Nofication: Detail of the notification",
+    "description": "intro-This endpoint allows you to details of a particular notification. You need to make a get request to the /notification/{notification_id} \n\nparamDesc- On get request the url takes a query parameter \"notification_id\" i.e /notification/notification_id:\n    param-notification_id: This is the unique identifier of the notification\n\nreturnDesc-On sucessful request, it returns\n    returnBody- details of the notification.",
     "operationId": "get_a_notification_notification__notification_id__get",
     "parameters": [
     {
@@ -5563,7 +5569,7 @@ export const testData = {
     "Notification"
     ],
     "summary": "Delete Notification",
-    "description": "Delete a notification from the db\n\nArgs:\n    notification_id (str): the id of the notification\n\nReturns:\n    object (dict): successfully deleted",
+    "description": "intro-This endpoint allows you to delete a particular notification from the database. You need to make a delete request to the /notification/{notification_id} endpoint.\n\nparamDesc- -On delete request the url takes a query parameter \"notification_id\" i.e /notification/notification_id:\n    param-notification_id: This is the unique identifier of the notification\n\nreturnDesc-On sucessful request, it returns\n    returnBody- \"success\".",
     "operationId": "delete_notification_notification__notification_id__delete",
     "parameters": [
     {
@@ -5605,7 +5611,7 @@ export const testData = {
     "Notification"
     ],
     "summary": "Get All Notifications",
-    "description": "Get all the notifications\n\nReturns:\n    List of schema.Notification: A list of all the notifications",
+    "description": "intro-This endpoint allows you to retrieve all notifications from the database. To retrieve you need to make a get request to the /notifications endpoint\n\n\nreturnDesc-On sucessful request, it returns\n    returnBody- an array of notifications.",
     "operationId": "get_all_notifications_notifications_get",
     "responses": {
     "200": {
@@ -5632,7 +5638,7 @@ export const testData = {
     "Notification"
     ],
     "summary": "Create Notification",
-    "description": "Create a new notification\n\nReturns:\n    schema.Notification: Details of the newly created notification",
+    "description": "intro-This endpoint allows you to create a new notification. To create, you need to make a post request to the /notification endpoint\n\n    reqBody-content: This is the content of the notification\n    reqBody-recipient: This the receiver of the notification\n    reqBody-reference: This is a unique identifier of the notification\n    reqBody-creator: This is the creator of the notification\n\nreturnDesc-On sucessful request, it returns\n    returnBody- the details of the newly created notification.",
     "operationId": "create_notification_notification_post",
     "requestBody": {
     "content": {
@@ -5680,7 +5686,7 @@ export const testData = {
     "Notification"
     ],
     "summary": "Mark Notification Read",
-    "description": "Marks a notifcation as read\n\nArgs:\n    notification_id (str): the id of the notification\n\nReturns:\n    schema.Notification: Refreshed data of the updated notification",
+    "description": "intro-This endpoint allows you mark a queried notifications as read. To use, you need to make a put request to the /notification/{notification_id}/read enpoint. \n\nparamDesc- On put request the url takes a query parameter \"notification_id\" i.e /notification/notification_id/read:\n    param-notification_id: This is the unique identifier of the notification\n\nreturnDesc-On sucessful request, it returns\n    returnBody- details of the updated notification.",
     "operationId": "mark_notification_read_notification__notification_id__read_put",
     "parameters": [
     {
@@ -5724,7 +5730,7 @@ export const testData = {
     "Notification"
     ],
     "summary": "Mark Notifications Read",
-    "description": "Mark all the notifications as read\n\nReturns:\n    List of schema.Notification: A list of all the notifications updated to read",
+    "description": "intro-This endpoint allows you mark all notifications as read. To use, you need to make a put request to the /notification/read enpoint. \n\nreturnDesc-On sucessful request, it returns\n    returnBody- an array of the notifications.",
     "operationId": "mark_notifications_read_notifications_read_put",
     "responses": {
     "200": {
@@ -5751,7 +5757,7 @@ export const testData = {
     "Notification"
     ],
     "summary": "Update Notification",
-    "description": "Update a notification\n\nArgs:\n    notification_id (str): the id of the notification\n\nReturns:\n    schema.Notification: The details of the notification that has been updated",
+    "description": "intro-This endpoint allows you to update a particular notification. You need to make a put request to the /notification/{notification_id} endpoint.\n\nparamDesc- -On put request the url takes a query parameter \"notification_id\" i.e /notification/notification_id:\n    param-notification_id: This is the unique identifier of the notification\n    reqBody-content: This is the content of the notification\n    reqBody-recipient: This the receiver of the notification\n    reqBody-reference: This is a unique identifier of the notification\n\nreturnDesc-On sucessful request, it returns\n    returnBody- \"success\".",
     "operationId": "update_notification_notifications__notification_id__put",
     "parameters": [
     {
@@ -9599,11 +9605,23 @@ export const testData = {
     "tags": [
     {
     "name": "blog",
-    "description": " BigFast's blog api endpoints include various standard blog api patterns from blog creation to various api querying operations. With this group you can easily get your blog client up and running in no time 📝"
+    "description": " BigFast's blog api includes various standard blog api patterns from blog creation to various api querying operations. With this group you can easily get your blog client up and running in no time 📝"
     },
     {
     "name": "auth",
-    "description": "This group allows you to interface with the auth endpoints"
+    "description": "BigFast's auth api allows you to manage creation and authentication of users in a seamless manner. You can create new users and authenticate existing users based on specific parameters"
+    },
+    {
+    "name": "countries",
+    "description": "BigFast's countries api allows you to get all countries in the world and thier respective states, you can also query for country codes including dial codes and sample phone formats"
+    },
+    {
+    "name": "pages",
+    "description": "BigFast's pages api allows you to manage creation, retrieval, updating, and deletion on pages seamlessly. You can create pages with a specified title and content body"
+    },
+    {
+    "name": "notification",
+    "description": "BigFast's notifications api  allows you to create notifications and manage the notification flow in your application. You can easily make queries like marking a specific notification as read, marking all notifications as read e.t.c."
     }
     ]
     }
