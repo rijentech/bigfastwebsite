@@ -2,7 +2,6 @@ import React, {useState, useCallback, useEffect} from "react";
 import Docsidebar from "../../../components/docSidebar";
 import "./auth.scss";
 import authIcon from "../../../assets/svgs/authicon.svg";
-import authflow from "../../../assets/svgs/authflow.svg";
 import reactlogo from "../../../assets/svgs/reactlogo.svg";
 import reactlogo2 from "../../../assets/svgs/reactlogo2.svg";
 import pythonlogo from "../../../assets/svgs/pythonlogo.svg";
