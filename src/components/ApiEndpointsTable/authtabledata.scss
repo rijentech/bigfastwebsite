@@ -3,6 +3,10 @@ tbody {
     font-size: 13px;
     width: 100%;
 
+    td{
+      min-width: 150px;
+    }
+
     &:nth-child(odd) {
       background-color: #eeeeee;
     }
@@ -16,6 +20,11 @@ tbody {
       .get_bg {
         background: #67B0FD;
       }
+
+      .delete_bg {
+        background: #f93e3e;
+      }
+
       .put_bg {
         background: #FCA13E;
       }
@@ -37,7 +46,6 @@ tbody {
     .col2_container {
       position: relative;
       display: flex;
-      justify-content: center;
       align-items: flex-start;
       padding-top: 25px;
       padding-bottom: 20px;
@@ -49,14 +57,11 @@ tbody {
       .col2 {
         color: #131313;
         text-decoration: underline;
-        text-align: center;
-        width: 16ch;
       }
     }
     .col3_container {
       position: relative;
       display: flex;
-      padding-bottom: 20px;
 
       span {
         &:nth-child(1) {

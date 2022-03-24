@@ -232,6 +232,9 @@ const AuthDoc = ({sidebaropen}) => {
 
           case "put":
             return "put_bg";
+          
+          case "delete":
+            return "delete_bg"
 
           default:
               return "get_bg";
@@ -251,9 +254,9 @@ const AuthDoc = ({sidebaropen}) => {
         <div className="main_description">
           {state?.groupDescription}
         </div>
-        <div className="auth_flow_img">
+        {/* <div className="auth_flow_img">
           <img src={authflow} alt="" />
-        </div>
+        </div> */}
         <div className="auth_endpoints_container">
           <div className="title">API EndPoints</div>
           <div className="table_scroll">
@@ -263,8 +266,8 @@ const AuthDoc = ({sidebaropen}) => {
                   <td>Method type</td>
                   <td>Url</td>
                   <td>Purpose</td>
-                  <td>Sample Source Code</td>
-                  <td>UI Sample</td>
+                  {/* <td>Sample Source Code</td>
+                  <td>UI Sample</td> */}
                 </tr>
               </thead>
               <tbody>

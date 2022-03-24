@@ -23,7 +23,20 @@
       margin-bottom: 30px;
 
       .label {
-        background: #67b0fd;
+        &.post {
+          background: #49ce93;
+        }
+        &.get {
+          background: #67B0FD;
+        }
+  
+        &.delete {
+          background: #f93e3e;
+        }
+  
+        &.put {
+          background: #FCA13E;
+        }
         color: #fff;
         border-radius: 4px;
         padding: 10px 20px;
@@ -46,6 +59,51 @@
 
       img {
         width: 100%;
+      }
+
+    }
+
+    .returnSubHeader{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .subHeaderRow{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 1.5rem 0 .5rem;
+
+      .subHeader{
+        color: grey;
+        margin: 0 !important;
+      }
+    }
+    .codeCard{
+      background: #333333;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+
+      .codeCardValue{
+        color: #ffd60a;
+      }
+
+      .codeCardKey{
+        color: #ffffff;
+
+        &.required{
+          color: #e5989b;
+        }
+      }
+
+      .codeCardComment{
+        font-size: small;
+        font-family: cursive;
+        color: #c7f9cc;
       }
     }
   }
