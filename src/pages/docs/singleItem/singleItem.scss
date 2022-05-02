@@ -16,6 +16,11 @@
     flex-grow: 1;
     padding: 20px 0px 0px 40px;
     width: 85%;
+    overflow: hidden;
+
+    .mb-30{
+      width: 100%;
+    }
 
     .heading_container {
       display: flex;
@@ -37,6 +42,10 @@
         &.put {
           background: #FCA13E;
         }
+
+        &.patch {
+          background: #FCA13E;
+        }
         color: #fff;
         border-radius: 4px;
         padding: 10px 20px;
@@ -44,15 +53,14 @@
       .title {
         text-decoration: underline;
         font-weight: bold;
-        font-size: 24px;
+        font-size: 32px;
         line-height: 150%;
         margin-left: 30px;
       }
     }
     .subtitle {
-      font-size: 20px;
-      margin-bottom: 10px;
-      font-weight: bold;
+      // font-size: 20px;
+      // margin-bottom: 10px;
     }
     .vplayer_container {
       cursor: pointer;
@@ -73,37 +81,70 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      margin: 1.5rem 0 .5rem;
+      margin-top: 1rem;
 
       .subHeader{
-        color: grey;
         margin: 0 !important;
       }
     }
-    .codeCard{
-      background: #333333;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      margin-top: 1rem;
 
-      .codeCardValue{
-        color: #ffd60a;
+    .codeCardCon{
+      overflow-x: scroll !important;
+
+      &::-webkit-scrollbar{
+        display: none;
       }
 
-      .codeCardKey{
-        color: #ffffff;
+      scrollbar-width: 0;
 
-        &.required{
-          color: #e5989b;
+      .codeCard{
+        background: #181818;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        min-width: 700px;
+        margin-right: 1rem;
+
+  
+        
+        .codeCardCommentCon{
+          display: flex;
+          flex-direction: column;
+  
+          .left{
+            white-space: nowrap;
+            min-width: 10rem;
+            margin-right: 2rem;
+            display: flex;
+            flex-direction: row;
+          }
+  
         }
-      }
-
-      .codeCardComment{
-        font-size: small;
-        font-family: cursive;
-        color: #c7f9cc;
+  
+        .codeCardValue{
+          color: #ffd60a;
+          width: 8rem;
+  
+          &.url{
+            color: #e5989b;
+          }
+        }
+  
+        .codeCardKey{
+          color: #ffffff;
+  
+          &.required{
+            color: #e5989b;
+          }
+        }
+  
+        .codeCardComment{
+          font-size: small;
+          font-family: cursive;
+          color: #c7f9cc;
+        }
       }
     }
   }
@@ -115,6 +156,7 @@
     .contents {
       padding: 0px 0px 0px 10px;
       width: 95%;
+  
 
       .heading_container {
         .title {
@@ -142,4 +184,16 @@
 }
 .mb-30 {
   margin-bottom: 30px;
+}
+
+.mb-1{
+  margin-bottom: 1rem;
+}
+
+.ml-2{
+  margin-left: 2rem;
+}
+
+.mb-3{
+  margin-bottom: 3rem;
 }
