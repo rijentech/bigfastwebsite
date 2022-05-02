@@ -29,9 +29,11 @@ tbody {
         background: #FCA13E;
       }
 
+      .patch_bg {
+        background: #FCA13E;
+      }
+
       .method_css {
-        position: absolute;
-        top: 20px;
         color: #ffffff;
         border-radius: 4px;
         width: 70px;
@@ -55,13 +57,16 @@ tbody {
       word-wrap: break-word;
 
       .col2 {
+        font-size: 14px;
         color: #131313;
-        text-decoration: underline;
       }
     }
     .col3_container {
       position: relative;
       display: flex;
+      padding-left: 16px;
+      font-size: 14px;
+      font-weight: 700;
 
       span {
         &:nth-child(1) {
