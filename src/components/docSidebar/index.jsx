@@ -14,22 +14,20 @@ const Docsidebar = ({ sidebaropen }) => {
 
 
   // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
   // const toggleNav = () => {
   //   setToggleMenu(!toggleMenu);
-  // };
+  // }
+  
 
   // useEffect(() => {
   //   const changeWidth = () => {
-  //     setScreenWidth(window.innerWidth);
-  //   };
-
-  //   window.addEventListener("resize", changeWidth);
-
+  //     setScreenWidth(window.innerWidth)
+  //   }
+  //   window.addEventListener("resize", changeWidth)
   //   return () => {
   //     window.removeEventListener("resize", changeWidth);
-  //   };
-  // }, []);
+  //   }
+  // }, [])
 
 
  
@@ -41,23 +39,23 @@ const Docsidebar = ({ sidebaropen }) => {
 
   const navlink = [
     { id: 1, pagelink: "/docs/introduction", title: "Introduction" },
-    { id: 2, pagelink: "/#", title: "Getting Started" },
+    { id: 2, pagelink: "/docs/getting-started", title: "Getting Started" },
     { id: 3, pagelink: "/docs/faqs", title: "FAQs" },
   ];
 
   const navlink2 = [
     { id: 1, pagelink: "/docs/installation", title: "Installation" },
-    { id: 2, pagelink: "/docs/working-with-get", title: "Working with GET" },
-    { id: 3, pagelink: "/docs/working-with-put", title: "Working with PUT" },
-    { id: 4, pagelink: "/docs/working-with-post", title: "Working with POST" },
+    { id: 2, pagelink: "/api-request/working-with-get", title: "Working with GET" },
+    { id: 3, pagelink: "/api-request/working-with-put", title: "Working with PUT" },
+    { id: 4, pagelink: "/api-request/working-with-post", title: "Working with POST" },
     {
       id: 5,
-      pagelink: "/docs/working-with-delete",
+      pagelink: "/api-request/working-with-delete",
       title: "Working with DELETE",
     },
-    { id: 6, pagelink: "/docs/run-go-app", title: "Run a GO App" },
-    { id: 7, pagelink: "/docs/run-node-app", title: "Run a Node App" },
-    { id: 8, pagelink: "/docs/run-python-app", title: "Run a Python App" },
+    { id: 6, pagelink: "/run-app/go-app", title: "Run a GO App" },
+    { id: 7, pagelink: "/run-app/node-app", title: "Run a Node App" },
+    { id: 8, pagelink: "/run-app/python-app", title: "Run a Python App" },
   ];
 
   // const navlink3 = [
