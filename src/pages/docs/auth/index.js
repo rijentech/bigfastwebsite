@@ -15,7 +15,7 @@ import { useApiData } from "../../../context/ApiContextProvider";
 import { useParams } from "react-router-dom";
 import { linkTrimer } from "../../../Helpers/linkTrimmer";
 
-const AuthDoc = ({ sidebaropen }) => {
+const ApiDoc = ({ sidebaropen }) => {
   const [state, setState] = useState({
     loading: true,
     group: [],
@@ -301,4 +301,4 @@ const AuthDoc = ({ sidebaropen }) => {
   );
 };
 
-export default AuthDoc;
+export default ApiDoc;
