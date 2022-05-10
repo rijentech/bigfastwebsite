@@ -57,7 +57,7 @@ const ApiDoc = ({ sidebaropen }) => {
               curator.push(item);
             }
           }
-        });
+        })
       }
       //tagsMetadata
       const metadata = apiData?.tags?.find?.((item) => item.name === id);
