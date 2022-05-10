@@ -8477,13 +8477,13 @@ export const testData = {
     "title": "Date Created",
     "type": "string",
     "format": "date-time",
-    "default": "2022-05-02T18:28:36.696523"
+    "default": "2022-05-10T14:53:58.616919"
     },
     "last_updated": {
     "title": "Last Updated",
     "type": "string",
     "format": "date-time",
-    "default": "2022-05-02T18:28:36.696523"
+    "default": "2022-05-10T14:53:58.616919"
     },
     "default_currency": {
     "title": "Default Currency",
@@ -8588,13 +8588,13 @@ export const testData = {
     "title": "Date Created",
     "type": "string",
     "format": "date-time",
-    "default": "2022-05-02T18:28:36.696523"
+    "default": "2022-05-10T14:53:58.616919"
     },
     "last_updated": {
     "title": "Last Updated",
     "type": "string",
     "format": "date-time",
-    "default": "2022-05-02T18:28:36.696523"
+    "default": "2022-05-10T14:53:58.616919"
     },
     "default_currency": {
     "title": "Default Currency",
@@ -10992,6 +10992,14 @@ export const testData = {
     {
     "name": "user",
     "description": "BigFast's users api allows you and mange user's and user processes in your application."
+    },
+    {
+    "name": "faqandsupport",
+    "description": "BigFast's Faq and Support api allows you to and set up a faq section in your application. This api alows creation and retireval of faqs. We also offer a support ticket workflow, you can incorporate the creation, replying and closing of support tickets in your application."
+    },
+    {
+    "name": "sendsms",
+    "description": "BigFast's Send Sms api allows you to send an sms with a body of request containing details of the sms action."
     }
     ]
     }
